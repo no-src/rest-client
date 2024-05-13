@@ -1,0 +1,14 @@
+### Test POST HTTP Request
+POST {{host}}/say
+Content-Type: application/json
+
+{
+  "content": "hello",
+  "secret": "{{secret}}"
+}
+
+### Test GET HTTP Request
+GET {{host}}/info
+
+### Get Github trending
+GET https://github.com/trending
