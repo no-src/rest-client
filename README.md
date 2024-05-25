@@ -52,5 +52,5 @@ rc -conf=conf.yaml -http=request.http
 ### Send Request
 
 ```bash
-rc -conf=conf.yaml -http=request.http -send -id=1
+rc -conf=conf.yaml -http=request.http -run -id=1
 ```
