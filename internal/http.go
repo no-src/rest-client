@@ -6,7 +6,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"slices"
 	"strings"
 )
 
@@ -51,7 +50,12 @@ func isLegalHTTPMethod(method string) bool {
 		http.MethodGet, http.MethodHead, http.MethodPost, http.MethodPut, http.MethodPatch,
 		http.MethodDelete, http.MethodConnect, http.MethodOptions, http.MethodTrace,
 	}
-	return slices.Contains(allows, method)
+	for _, m := range allows {
+		if m == method {
+			return true
+		}
+	}
+	return false
 }
 
 func isLegalURL(u string) bool {
