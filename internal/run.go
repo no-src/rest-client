@@ -40,6 +40,7 @@ func run(configFile, httpFile string, h handler) error {
 	if err != nil {
 		return err
 	}
+	data = removeBOM(data)
 	requests, err := parseHttp(string(data))
 	if err != nil {
 		return err
@@ -52,4 +53,11 @@ func run(configFile, httpFile string, h handler) error {
 		}
 	}
 	return nil
+}
+
+func removeBOM(data []byte) []byte {
+	if len(data) >= 3 && data[0] == 0xEF && data[1] == 0xBB && data[2] == 0xBF {
+		data = data[3:]
+	}
+	return data
 }
