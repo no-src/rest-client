@@ -1,6 +1,6 @@
 module github.com/no-src/rest-client
 
-go 1.22.2
+go 1.19
 
 require (
 	github.com/no-src/log v0.3.2
