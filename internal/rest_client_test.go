@@ -13,9 +13,12 @@ var (
 )
 
 func TestShowRequest(t *testing.T) {
-	err := run(testConfigFile, testHttpFile, showHandler(0))
-	if err != nil {
-		t.Error(err)
+	for i := 0; i < 5; i++ {
+		t.Log("test show request id=", i)
+		err := run(testConfigFile, testHttpFile, showHandler(i))
+		if err != nil {
+			t.Error(err)
+		}
 	}
 }
 
